@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solomon Baye - Cyber & Enterprise Security Architect</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.5;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 15px;
+        }
+
+        .cv-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            overflow: hidden;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 35px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 25s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .name {
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            letter-spacing: 1px;
+        }
+
+        .title {
+            font-size: 1.3em;
+            font-weight: 300;
+            margin-bottom: 15px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.95em;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.3s ease;
+            background: rgba(255,255,255,0.1);
+            padding: 8px 12px;
+            border-radius: 20px;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+            background: rgba(255,255,255,0.2);
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            padding: 35px;
+        }
+
+        .left-column, .right-column {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .section {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .section-title {
+            font-size: 1.3em;
+            font-weight: 800;
+            color: #1e3c72;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #e74c3c 0%, #f39c12 100%);
+            transition: width 0.3s ease;
+        }
+
+        .section:hover .section-title::after {
+            width: 100px;
+        }
+
+        .summary {
+            font-size: 1em;
+            line-height: 1.7;
+            text-align: justify;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .achievements {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .achievement-item {
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px 18px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95em;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(116, 185, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .achievement-item:hover::before {
+            left: 100%;
+        }
+
+        .achievement-item:hover {
+            transform: translateX(0);
+            box-shadow: 0 8px 25px rgba(116, 185, 255, 0.4);
+        }
+
+        .expertise-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .expertise-item {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 10px;
+            padding: 18px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .expertise-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .expertise-item:hover::before {
+            left: 100%;
+        }
+
+        .expertise-item:hover {
+            border-color: #3498db;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.2);
+        }
+
+        .expertise-title {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.05em;
+        }
+
+        .expertise-skills {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .job {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-left: 5px solid #e74c3c;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(231, 76, 60, 0.05), transparent);
+            transition: right 0.5s ease;
+        }
+
+        .job:hover::before {
+            right: 100%;
+        }
+
+        .job:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .job-header {
+            margin-bottom: 15px;
+        }
+
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 5px;
+        }
+
+        .job-company {
+            font-size: 1.05em;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .job-period {
+            color: #7f8c8d;
+            font-weight: 500;
+            background: linear-gradient(135deg, #ecf0f1 0%, #bdc3c7 100%);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            display: inline-block;
+        }
+
+        .job-responsibilities {
+            list-style: none;
+        }
+
+        .job-responsibilities li {
+            margin-bottom: 10px;
+            padding-left: 18px;
+            position: relative;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .job-responsibilities li::before {
+            content: '▶';
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(162, 155, 254, 0.3);
+        }
+
+        .education-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(162, 155, 254, 0.4);
+        }
+
+        .degree {
+            font-size: 1.05em;
+            font-weight: 700;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+
+        .university {
+            font-size: 0.95em;
+            opacity: 0.9;
+            margin-bottom: 6px;
+        }
+
+        .education-details {
+            font-size: 0.85em;
+            opacity: 0.8;
+            font-style: italic;
+            line-height: 1.4;
+        }
+
+        .certifications {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .cert-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00b894;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .cert-item:hover {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,184,148,0.2);
+        }
+
+        .tools-container {
+            background: linear-gradient(135deg, #2d3436 0%, #636e72 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 15px;
+            border-radius: 8px;
+            border-top: 4px solid #fd79a8;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(253,121,168,0.2);
+        }
+
+        .skill-title {
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+
+        .skill-content {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #2c3e50;
+        }
+
+        .interests {
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.95em;
+            line-height: 1.6;
+            box-shadow: 0 5px 15px rgba(253,121,168,0.3);
+        }
+
+        .projects-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 5px solid #9b59b6;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .project-item {
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .project-title {
+            font-weight: 700;
+            color: #1e3c72;
+            font-size: 1em;
+            margin-bottom: 6px;
+        }
+
+        .project-description {
+            font-size: 0.9em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                margin: 10px;
+                border-radius: 10px;
+            }
+            
+            .header {
+                padding: 25px 15px;
+            }
+            
+            .name {
+                font-size: 2.2em;
+            }
+            
+            .content {
+                grid-template-columns: 1fr;
+                padding: 25px 15px;
+                gap: 25px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                border-radius: 0;
+                max-width: none;
+            }
+            
+            .header {
+                background: #1e3c72 !important;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .achievement-item,
+            .education-item {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .content {
+                gap: 25px;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">SOLOMON BAYE</h1>
+                <p class="title">Cyber & Enterprise Security Architect | Passionate Innovator | Strategic Leader</p>
+                <div class="contact-info">
+                    <div class="contact-item">📧 solelectr@gmail.com</div>
+                    <div class="contact-item">📱 +251 911 506 932</div>
+                    <div class="contact-item">🌍 Addis Ababa, Ethiopia</div>
+                    <div class="contact-item">🔗 linkedin.com/in/solomonbaye</div>
+                </div>
+            </div>
+        </header>
+
+        <main class="content">
+            <div class="left-column">
+                <section class="section">
+                    <h2 class="section-title">Executive Summary</h2>
+                    <div class="summary">
+                        A highly accomplished and deeply passionate Cyber & Enterprise Security Architect with over 8 years of progressive experience in safeguarding critical telecom, enterprise IT, and operational technology (OT/ICS) environments. A senior practitioner of TOGAF and SABSA, I excel at designing and delivering high-impact security programs, including large-scale Identity and Access Management (IAM), Zero Trust architectures, robust cloud governance, and comprehensive enterprise Governance, Risk, and Compliance (GRC) frameworks. My career is marked by a consistent ability to lead complex vendor integrations, cultivate high-performing cross-functional teams, and drive secure digital transformation.
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Key Achievements</h2>
+                    <div class="achievements">
+                        <div class="achievement-item">
+                            <strong>40% enterprise risk reduction</strong> by implementing and aligning security governance with ISO 27001, NIST CSF, and CIS Controls
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Secured 50,000+ identities</strong> through architected IAM integrations across critical ERP, Mobile Money, and core systems
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Led enterprise Zero Trust adoption</strong> with identity-centric access controls and micro-segmentation
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Achieved 99.9% uptime</strong> for key services through infrastructure modernization and security hardening
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Scaled security culture</strong> across 200+ employees and operational teams
+                        </div>
+                        <div class="achievement-item">
+                            <strong>Successfully managed</strong> large-scale vendor rollouts with IBM, Huawei, and Radware
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Core Expertise</h2>
+                    <div class="expertise-grid">
+                        <div class="expertise-item">
+                            <div class="expertise-title">Enterprise Security & Architecture</div>
+                            <div class="expertise-skills">TOGAF, SABSA, ArchiMate, ESA Roadmaps, Enterprise Architecture (EA), Security by Design</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-title">Cybersecurity & IAM</div>
+                            <div class="expertise-skills">Zero Trust, IAM (OAuth, SAML, MFA, PAM, SSO, RBAC), SIEM, WAF, Anti-DDoS, AAA, VDI</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-title">GRC & Risk Management</div>
+                            <div class="expertise-skills">ISO 27001, NIST CSF, CIS Controls, GDPR, ISO 31000, COBIT, Risk Assessments</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-title">Cloud & Hybrid Security</div>
+                            <div class="expertise-skills">AWS, Azure, Private Cloud, CSA CCM, Cloud Governance, Secure Cloud Deployments</div>
+                        </div>
+                        <div class="expertise-item">
+                            <div class="expertise-title">Telecom & OT/ICS Security</div>
+                            <div class="expertise-skills">Secure Converged Networks, ICS Controls, Fixed Network Architecture (MSAG, MSAN, FTTH)</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Education</h2>
+                    <div class="education-item">
+                        <div class="degree">Master of Science - Electrical & Computer Engineering (Control Systems)</div>
+                        <div class="university">Addis Ababa University | 2016 – 2019</div>
+                        <div class="education-details">Thesis: Non-linear Adaptive Artificial Neural Networks Control of Municipal Wastewater Treatment Plants</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="degree">Bachelor of Science - Electrical, Electronics & Communications Engineering</div>
+                        <div class="university">Addis Ababa University | 2010 – 2015</div>
+                        <div class="education-details">Graduated top-5 in class; active in Electrical Association Club, providing tutoring for junior students</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Languages & Soft Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <div class="skill-title">Languages</div>
+                            <div class="skill-content">English (Professional Working Proficiency) · Amharic (Native)</div>
+                        </div>
+                        <div class="skill-category">
+                            <div class="skill-title">Soft Skills</div>
+                            <div class="skill-content">Team Leadership, Cross-functional Collaboration, Technical Mentoring, Rapid Learner, Client Consulting, Knowledge Sharing, Problem-Solving, Natural Curiosity</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="right-column">
+                <section class="section">
+                    <h2 class="section-title">Professional Experience</h2>
+                    
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Information Security Architect</div>
+                            <div class="job-company">Ethio Telecom</div>
+                            <div class="job-period">Jan 2024 – Present | Addis Ababa, Ethiopia</div>
+                        </div>
+                        <ul class="job-responsibilities">
+                            <li>Strategically lead enterprise security architecture and roadmaps using TOGAF & SABSA, directly aligning security investments with critical business outcomes and operational resilience</li>
+                            <li>Direct the comprehensive end-to-end IBM IAM program, from requirements gathering and HLD/LLD to vendor integration, PAT, and rollout, safeguarding 50,000+ identities</li>
+                            <li>Champion the enterprise-wide adoption of Zero Trust principles, implementing identity-centric access controls, micro-segmentation, and advanced monitoring</li>
+                            <li>Oversee robust risk & compliance programs (ISO 27001, NIST CSF, CIS), achieving a 40% reduction in assessed enterprise risk while significantly boosting audit readiness</li>
+                            <li>Govern cloud security posture across AWS/Azure, meticulously mapping controls to CSA CCM, and enforcing stringent security/regulatory controls</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Network Engineer</div>
+                            <div class="job-company">Ethio Telecom</div>
+                            <div class="job-period">Dec 2019 – Jan 2024 | Addis Ababa, Ethiopia</div>
+                        </div>
+                        <ul class="job-responsibilities">
+                            <li>Engineered and meticulously hardened routing, firewalling, and Wi-Fi access controls, contributing to 99.9% network uptime for critical services</li>
+                            <li>Managed large-scale MSAG→MSAN migration and FTTH/Copper deployments, supporting over 3,000 customers from planning to endpoint delivery</li>
+                            <li>Provided crucial security design and operational input for early cloud integration and hybrid network initiatives</li>
+                        </ul>
+                    </div>
+
+                    <div class="job">
+                        <div class="job-header">
+                            <div class="job-title">Customer Service Consultant</div>
+                            <div class="job-company">Ethio Telecom</div>
+                            <div class="job-period">Sep 2016 – Nov 2019 | Addis Ababa, Ethiopia</div>
+                        </div>
+                        <ul class="job-responsibilities">
+                            <li>Resolved escalated technical issues with exceptional proficiency, achieving 95%+ customer satisfaction rate</li>
+                            <li>Served as primary first-line escalation point for technical incidents, collaborating with engineering teams on root-cause analysis</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Selected Projects</h2>
+                    <div class="projects-section">
+                        <div class="project-item">
+                            <div class="project-title">Enterprise Architecture Consulting</div>
+                            <div class="project-description">Advised major engineering clients on Enterprise Security Architecture (ESA), developing robust governance models and tool selections aligned with TOGAF and SABSA</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-title">Enterprise IAM (IBM) Implementation</div>
+                            <div class="project-description">Led comprehensive requirements, HLD/LLD, and PAT reviews; managed vendor integration and successfully integrated identity services with enterprise solutions</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-title">Zero Trust Program Development</div>
+                            <div class="project-description">Defined enterprise Zero Trust architecture, crafted phased rollout strategy and micro-segmentation design, coordinating vendor & operations teams</div>
+                        </div>
+                        <div class="project-item">
+                            <div class="project-title">WAF & Anti-DDoS (Radware) Deployment</div>
+                            <div class="project-description">Served on requirements and design team, reviewing vendor designs and validating HLD/LLD and acceptance criteria prior to operational handover</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Certifications & Learning</h2>
+                    <div class="certifications">
+                        <div class="cert-item">Using SABSA to Architect Cloud Security (LinkedIn)</div>
+                        <div class="cert-item">Cloud Security Architecture for the Enterprise (LinkedIn)</div>
+                        <div class="cert-item">CompTIA Security+ (LinkedIn)</div>
+                        <div class="cert-item"><strong>30+ LinkedIn / Coursera / Udacity courses</strong> (Cloud, IAM, Network Security, AI foundations)</div>
+                        <div class="cert-item">Actively preparing for <strong>CISA exam</strong></div>
+                        <div class="cert-item">Consistent engagement in webinars and conferences</div>
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Technical Proficiencies</h2>
+                    <div class="tools-container">
+                        IBM IAM, Huawei AAA & VDI, Radware WAF & Anti-DDoS, SIEM platforms, AWS, Azure, Linux, Routing/Switching, FTTH Provisioning Tools, ArchiMate, Figma/Canva/SlideModel
+                    </div>
+                </section>
+
+                <section class="section">
+                    <h2 class="section-title">Professional Interests</h2>
+                    <div class="interests">
+                        Enterprise & Cloud Security Architecture, IAM at Scale, GRC for Financial/Telecom Sectors, Secure Digital Transformation, Emerging Cybersecurity Threats, AI in Security, International Cybersecurity Standards
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
